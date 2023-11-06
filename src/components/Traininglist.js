@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useRef} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
@@ -18,9 +18,9 @@ export default function Traininglist(){
           })
           .then(data => setTrainings(data))
           .catch(error => console.error('Error fetching data:', error));
-      };
+    };
     
-      const dateFormatter = (params) => {
+    const dateFormatter = (params) => {
         const formattedDate = dayjs(params.value).format('DD.MM.YYYY');
         return formattedDate;
         };
@@ -34,9 +34,8 @@ export default function Traininglist(){
         {field : "date" , headerName : "Aika", sortable : true, filter : true, cellRenderer: timeFormatter, width: 150},
         {field : "duration" , headerName : "Kesto(min)", sortable : true, filter : true, width : 150},
         {field : "activity" , headerName : "Harjoitus", sortable : true, filter : true, width : 200},
-        {field: 'customer.firstname', headerName: 'Asiakas', sortable: true, filter: true, width : 200,
-        valueGetter: 
-            (params) => {
+        {headerName: 'Asiakas', sortable: true, filter: true, width : 200, 
+            valueGetter: (params) => {
                 return params.data.customer.firstname + " " + params.data.customer.lastname;
             },
         },
@@ -46,6 +45,7 @@ export default function Traininglist(){
     const pagination = true;
     const paginationPageSize = 10;
     const gridStyle = useMemo(() => ({ height: '550px', width: '70%' }), []);
+
     return (
         <div>
             <h1> Harjoitusten lista</h1>
@@ -54,8 +54,8 @@ export default function Traininglist(){
                     pagination={pagination}
                     paginationPageSize={paginationPageSize}
                     rowData={trainings} 
-                    columnDefs={columns} />
+                    columnDefs={columns}/>
             </div>   
-      </div>
+        </div>
     )
 }

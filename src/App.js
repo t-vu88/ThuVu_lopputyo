@@ -23,8 +23,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Customerlist from './components/Customerlist'
 import Traininglist from './components/Traininglist'
-const drawerWidth = 240;
 
+const drawerWidth = 200;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
