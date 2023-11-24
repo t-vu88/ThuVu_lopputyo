@@ -17,7 +17,7 @@ export default function AddTraining(props) {
         date: '',
         duration: '',
         activity: '',
-        customer: null // Updated to use null for initial state
+        customer: null
     });
     const [customers, setCustomers] = useState([]);
 
