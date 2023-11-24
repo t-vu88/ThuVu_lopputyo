@@ -146,7 +146,7 @@ export default function App() {
         <DrawerHeader />
         {navBarComponent ||
         (<Typography paragraph>
-          <h1>Tervetuloa Personal trainer-yritykseemme.</h1>
+          Tervetuloa Personal trainer-yritykseemme.
         </Typography>)}
       </Main>
     </Box>
