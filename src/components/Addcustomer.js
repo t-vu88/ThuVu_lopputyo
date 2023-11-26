@@ -40,8 +40,8 @@ export default function AddCar(props){
     return (
         <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                <AddBoxRoundedIcon color ="primary" sx ={{ fontSize: 40}} onClick={handleClickOpen} />
-                <span>Lisää uusi asiakas</span>
+                <AddBoxRoundedIcon color ="primary" sx ={{ fontSize: 40}} onClick={handleClickOpen} style ={{cursor:'pointer'}}/>
+                <span style={{ fontSize: '20px',fontWeight: 'bold'}}>Lisää uusi asiakas</span>
              </div>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle id = "form-dialog-title">Uusi asiakas </DialogTitle>

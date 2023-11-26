@@ -63,8 +63,8 @@ export default function AddTraining(props) {
     return (
         <div>
             <div style={{ display: 'flex', alignItems: 'center', margin: '10px' }}>
-                <AddBoxRoundedIcon color="primary" sx={{ fontSize: 40 }} onClick={handleClickOpen} />
-                <span>Lisää uusi harjoitus</span>
+                <AddBoxRoundedIcon color="primary" sx={{ fontSize: 40 }} onClick={handleClickOpen} style ={{cursor:'pointer'}}/>
+                <span style={{ fontSize: '20px',fontWeight: 'bold'}}>Lisää uusi harjoitus</span>
             </div>
             <Dialog open={open} onClose={handleClose}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
