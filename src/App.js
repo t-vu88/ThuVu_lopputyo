@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EventIcon from '@mui/icons-material/Event';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
@@ -26,6 +27,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Customerlist from './components/Customerlist'
 import Traininglist from './components/Traininglist'
 import Kalenteri from './components/Kalenteri'
+import Tilasto from './components/Tilasto';
 const drawerWidth = 200;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -93,6 +95,9 @@ export default function App() {
     if (text ==="Kalenteri"){
       setNavBarComponent(<Kalenteri/>)
     }
+    if (text === 'Tilasto') {
+      setNavBarComponent(<Tilasto />);
+    }
   }
 
   return (
@@ -134,12 +139,15 @@ export default function App() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Asiakkaat', 'Harjoitukset','Kalenteri'].map((text, index) => (
+          {['Asiakkaat', 'Harjoitukset','Kalenteri', 'Tilasto'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick = {() => handleDrawerItemSelected(text)}>
-                <ListItemIcon>
-                {index === 1 ? <DirectionsRunIcon /> :index === 2 ? <EventIcon /> : <AccountBoxIcon />}
-                </ListItemIcon>
+              <ListItemIcon>
+                {index === 1 ? <DirectionsRunIcon /> :
+                  index === 2 ? <EventIcon /> :
+                  index === 3 ? <InsertChartIcon /> : <AccountBoxIcon />
+                }
+              </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
