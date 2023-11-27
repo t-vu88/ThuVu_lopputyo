@@ -1,4 +1,3 @@
-// Kalenteri.js
 
 import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -26,13 +25,15 @@ const Kalenteri = () => {
       .catch(error => console.error('Error fetching data:', error));
   };
 
-  const events = trainings.map(training => ({
-    title: `${training.activity}/${training.customer.firstname} ${training.customer.lastname} `,
-    start: new Date(training.date),
-    end: moment(training.date).add(training.duration, 'minutes').toDate(),
-  }));
-
-  
+  const events = trainings.map(training => {
+    const customerName = `${training.customer?.firstname} ${training.customer?.lastname}` ?? 'No Customer';
+    return {
+      title: `${training.activity}/${customerName}`,
+      start: new Date(training.date),
+      end: moment(training.date).add(training.duration, 'minutes').toDate(),
+    };
+  });
+ 
   return (
     <div>
       <h2>Kalenteri</h2>

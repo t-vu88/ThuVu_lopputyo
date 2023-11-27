@@ -58,10 +58,9 @@ export default function AddTraining(props) {
             const updatedTraining = { ...training, customer: customerIDLink, date: training.date.toISOString() };
             props.saveTraining(updatedTraining);
           }
-        
         handleClose();
     }
-  
+
     return (
         <div>
             <div style={{ display: 'flex', alignItems: 'center', margin: '10px' }}>

@@ -1,4 +1,4 @@
-// Tilasto.js
+
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import { sumBy, groupBy } from 'lodash';
@@ -26,7 +26,6 @@ const Tilasto = () => {
       duration: sumBy(groupedActivityType[activity], 'duration'),
     }));
 
-    // Set the aggregated data to the state
     setChartData(DurationOfEachActivityType);
   }, [trainings]);
 
