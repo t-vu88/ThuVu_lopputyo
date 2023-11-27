@@ -67,7 +67,9 @@ export default function Traininglist() {
     {
       headerName: 'Asiakas', sortable: true, filter: true, width: 200,
       cellRenderer: (params) => {
-        return params.data.customer.firstname + " " + params.data.customer.lastname;
+        return params.data.customer ? (
+          <div>{`${params.data.customer.firstname} ${params.data.customer.lastname}`}</div>
+        ) : ( <div> </div>);
       },
     },
     {

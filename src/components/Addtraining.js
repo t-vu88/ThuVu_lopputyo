@@ -52,14 +52,16 @@ export default function AddTraining(props) {
     };
 
     const addTraining = () => {
-        const selectedCustomer = training.customer;
-        const customerIDLink = selectedCustomer.links[1].href;
-        const updatedTraining = { ...training, customer: customerIDLink, date: training.date.toISOString() };
-        props.saveTraining(updatedTraining);
+        if (training.customer) {
+            const selectedCustomer = training.customer;
+            const customerIDLink = selectedCustomer.links[1].href;
+            const updatedTraining = { ...training, customer: customerIDLink, date: training.date.toISOString() };
+            props.saveTraining(updatedTraining);
+          }
+        
         handleClose();
     }
   
-
     return (
         <div>
             <div style={{ display: 'flex', alignItems: 'center', margin: '10px' }}>

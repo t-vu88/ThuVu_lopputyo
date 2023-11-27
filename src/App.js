@@ -15,15 +15,17 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import EventIcon from '@mui/icons-material/Event';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
 import Customerlist from './components/Customerlist'
 import Traininglist from './components/Traininglist'
-
+import Kalenteri from './components/Kalenteri'
 const drawerWidth = 200;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -88,6 +90,9 @@ export default function App() {
     if (text ==="Harjoitukset"){
       setNavBarComponent(<Traininglist />)
     }
+    if (text ==="Kalenteri"){
+      setNavBarComponent(<Kalenteri/>)
+    }
   }
 
   return (
@@ -129,11 +134,11 @@ export default function App() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Asiakkaat', 'Harjoitukset'].map((text, index) => (
+          {['Asiakkaat', 'Harjoitukset','Kalenteri'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick = {() => handleDrawerItemSelected(text)}>
                 <ListItemIcon>
-                {index === 1 ? <DirectionsRunIcon /> : <AccountBoxIcon />}
+                {index === 1 ? <DirectionsRunIcon /> :index === 2 ? <EventIcon /> : <AccountBoxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
